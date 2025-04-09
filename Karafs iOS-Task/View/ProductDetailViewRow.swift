@@ -29,7 +29,7 @@ struct ProductDetailViewRow: View {
     var body: some View {
         LabeledContent {
             Text(productRowLabel)
-                .foregroundStyle(.black)
+                .foregroundStyle(.primary)
                 .fontWeight(.medium)
             
         } label: {
@@ -45,7 +45,7 @@ struct ProductDetailViewRow: View {
                 }
                 
                 Text(productRowTitle.capitalized)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .fontWeight(.bold)
             }
         }

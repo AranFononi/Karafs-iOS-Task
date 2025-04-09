@@ -9,7 +9,22 @@
 /* Begin PBXBuildFile section */
 		A476E25B2DA6ABAE005144EF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A476E25A2DA6ABAE005144EF /* RealmSwift */; };
 		A476E25E2DA6AC51005144EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A476E25D2DA6AC51005144EF /* Alamofire */; };
+		A476E31D2DA6CD01005144EF /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A476E25A2DA6ABAE005144EF /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A476E31E2DA6CD01005144EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A476E31D2DA6CD01005144EF /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A476E24B2DA6AB7B005144EF /* Karafs iOS-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karafs iOS-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +77,7 @@
 				A476E2472DA6AB7B005144EF /* Sources */,
 				A476E2482DA6AB7B005144EF /* Frameworks */,
 				A476E2492DA6AB7B005144EF /* Resources */,
+				A476E31E2DA6CD01005144EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
