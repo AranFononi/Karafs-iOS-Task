@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A476E25B2DA6ABAE005144EF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A476E25A2DA6ABAE005144EF /* RealmSwift */; };
+		A476E25E2DA6AC51005144EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A476E25D2DA6AC51005144EF /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A476E24B2DA6AB7B005144EF /* Karafs iOS-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Karafs iOS-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A476E25B2DA6ABAE005144EF /* RealmSwift in Frameworks */,
+				A476E25E2DA6AC51005144EF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = "Karafs iOS-Task";
 			packageProductDependencies = (
+				A476E25A2DA6ABAE005144EF /* RealmSwift */,
+				A476E25D2DA6AC51005144EF /* Alamofire */,
 			);
 			productName = "Karafs iOS-Task";
 			productReference = A476E24B2DA6AB7B005144EF /* Karafs iOS-Task.app */;
@@ -94,6 +103,10 @@
 			);
 			mainGroup = A476E2422DA6AB7B005144EF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A476E2592DA6ABAE005144EF /* XCRemoteSwiftPackageReference "realm-swift" */,
+				A476E25C2DA6AC51005144EF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A476E24C2DA6AB7B005144EF /* Products */;
 			projectDirPath = "";
@@ -324,6 +337,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A476E2592DA6ABAE005144EF /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A476E25C2DA6AC51005144EF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A476E25A2DA6ABAE005144EF /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A476E2592DA6ABAE005144EF /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		A476E25D2DA6AC51005144EF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A476E25C2DA6AC51005144EF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A476E2432DA6AB7B005144EF /* Project object */;
 }
