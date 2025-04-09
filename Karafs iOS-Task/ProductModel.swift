@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct ProductModel: Codable {
     let products: [Product]
@@ -20,3 +21,14 @@ struct Product: Codable {
     let stock: Int
     let sku : String
 }
+
+class ProductObject: Object, Identifiable {
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted var title: String
+    @Persisted var desc: String
+    @Persisted var price: Double
+    @Persisted var discountPercentage: Double
+    @Persisted var stock: Int
+    @Persisted var sku: String
+}
+
