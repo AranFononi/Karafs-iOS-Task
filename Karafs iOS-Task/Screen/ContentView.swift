@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject private var viewModel = ProductViewModel()
     
     var body: some View {
         NavigationView {
             List(viewModel.products) { product in
-                ProductListRowView(productTitle: product.title, productRate: product.r)
+                ProductListRowView(productTitle: product.title, productRate: product.rating)
             }
         }
     }

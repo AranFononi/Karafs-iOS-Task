@@ -27,6 +27,7 @@ class NetworkManager {
                             obj.title = product.title
                             obj.desc = product.description
                             obj.price = product.price
+                            obj.rating = product.rating
                             obj.discountPercentage = product.discountPercentage
                             obj.stock = product.stock
                             obj.sku = product.sku

@@ -27,7 +27,7 @@ struct IconView: View {
     var iconColor: Color {
         switch icon {
             case "eyes.inverse":
-            return .yellow
+            return .orange
             case "face.smiling.inverse":
             return .green
             case "flame.fill":
@@ -39,7 +39,10 @@ struct IconView: View {
     
     var body: some View {
         Image(systemName: icon)
+            .resizable()
+            .scaledToFit()
             .foregroundStyle(iconColor)
+            .frame(width: 30, height: 30)
     }
 }
 
