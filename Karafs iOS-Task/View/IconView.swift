@@ -43,6 +43,7 @@ struct IconView: View {
             .scaledToFit()
             .foregroundStyle(iconColor)
             .frame(width: 30, height: 30)
+            .symbolEffect(.breathe)
     }
 }
 
