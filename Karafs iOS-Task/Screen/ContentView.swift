@@ -11,13 +11,11 @@ struct ContentView: View {
     @StateObject private var viewModel = ProductViewModel()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List(viewModel.products) { product in
+                ProductListRowView(productTitle: product.title, productRate: product.r)
+            }
         }
-        .padding()
     }
 }
 

@@ -15,6 +15,7 @@ struct ProductModel: Codable {
 struct Product: Codable {
     let id: Int
     let title: String
+    let rating: Double
     let description: String
     let price: Double
     let discountPercentage : Double
@@ -26,6 +27,7 @@ class ProductObject: Object, Identifiable {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var title: String
     @Persisted var desc: String
+    @Persisted var rating: Double
     @Persisted var price: Double
     @Persisted var discountPercentage: Double
     @Persisted var stock: Int
