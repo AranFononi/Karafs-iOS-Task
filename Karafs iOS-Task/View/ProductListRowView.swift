@@ -20,6 +20,7 @@ struct ProductListRowView: View {
                 
                 // Icon
                 IconView(rate: productRate)
+                    
                                 
                 VStack(alignment:.leading, spacing: 8) {
                     
@@ -35,6 +36,7 @@ struct ProductListRowView: View {
                     
                 } //: VStack
             } //: HStack
+
     }
 }
 
