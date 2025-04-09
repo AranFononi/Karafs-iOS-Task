@@ -27,11 +27,11 @@ struct IconView: View {
     var iconColor: Color {
         switch icon {
             case "eyes.inverse":
-            return .orange
-            case "face.smiling.inverse":
-            return .green
-            case "flame.fill":
             return .red
+            case "face.smiling.inverse":
+            return .orange
+            case "flame.fill":
+            return .green
             default:
             return .blue
         }

@@ -11,32 +11,30 @@ struct ProductListRowView: View {
     var productTitle: String
     var productRate: Double
     var body: some View {
-            // Background
+        
+        
+        // Base
+        HStack(alignment: .center, spacing: 16) {
+            
+            // Icon
+            IconView(rate: productRate)
             
             
-            
-            // Base
-            HStack(alignment: .center, spacing: 16) {
+            VStack(alignment:.leading, spacing: 8) {
                 
-                // Icon
-                IconView(rate: productRate)
-                    
-                                
-                VStack(alignment:.leading, spacing: 8) {
-                    
-                    // Title
-                        Text(productTitle)
-                            .font(.system(size: 15, weight: .bold))
-                            .foregroundStyle(.primary)
-                            .lineLimit(1)
-                    
-                    
-                    // Rate Stars
-                    RateView(rate: productRate)
-                    
-                } //: VStack
-            } //: HStack
-
+                // Title
+                Text(productTitle)
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+                
+                
+                // Rate Stars
+                RateView(rate: productRate)
+                
+            } //: VStack
+        } //: HStack
+        
     }
 }
 
