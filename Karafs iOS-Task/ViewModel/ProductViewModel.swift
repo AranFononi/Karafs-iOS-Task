@@ -15,26 +15,37 @@ class ProductViewModel: ObservableObject {
     
     private var networkManager = NetworkManager.shared
     
+    
     init() {
-        do {
-            let config = Realm.Configuration(
-                schemaVersion: 1,
-                migrationBlock: { migration, oldSchemaVersion in
-                    if oldSchemaVersion < 1 {
-                        
+            do {
+                let config = Realm.Configuration(
+                    schemaVersion: 2,
+                    migrationBlock: { migration, oldSchemaVersion in
+                        if oldSchemaVersion < 2 {
+                            migration.enumerateObjects(ofType: ProductObject.className()) { oldObject, newObject in
+                                if newObject?["thumbnail"] == nil {
+                                    newObject?["thumbnail"] = ""
+                                }
+                                if newObject?["images"] == nil {
+                                    newObject?["images"] = List<String>()
+                                }
+                            }
+                        }
                     }
-                }
-            )
+                )
 
-            Realm.Configuration.defaultConfiguration = config
-            
-            self.realm = try Realm()
-            fetchProducts()
-        } catch {
-            print("Realm error: \(error)")
-            self.realm = try! Realm()
+                Realm.Configuration.defaultConfiguration = config
+                
+                self.realm = try Realm()
+                self.products = []
+                fetchProducts()
+            } catch {
+                self.realm = try! Realm()
+                print("Realm error: \(error)")
+                self.products = []
+            }
         }
-    }
+    
     
     private func fetchProducts() {
         let results = realm.objects(ProductObject.self)

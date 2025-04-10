@@ -11,44 +11,40 @@ import RealmSwift
 
 actor NetworkManager {
     
-    static let shared = NetworkManager()
     
-    func fetchData() {
-        AF.request("https://dummyjson.com/products").responseDecodable(of: ProductModel.self) { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let realm = try Realm()
-                    
-                    try realm.write {
-                        for product in data.products {
-                            let obj = ProductObject()
-                            obj.id = product.id
-                            obj.title = product.title
-                            obj.desc = product.description
-                            obj.price = product.price
-                            obj.rating = product.rating
-                            obj.discountPercentage = product.discountPercentage
-                            obj.stock = product.stock
-                            obj.sku = product.sku
-                            obj.thumbnail = product.thumbnail
-                            
-                            let imageList = List<String>()
-                            imageList.append(objectsIn: product.images)
-                            obj.images = imageList
-                            
-                            realm.add(obj, update: .modified)
-                        }
-                    }
-                    
-                } catch {
-                    print("Realm error: \(error)")
-                }
-                
-                
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-    }
+     static let shared = NetworkManager()
+     
+     func fetchData() {
+         AF.request("https://dummyjson.com/products").responseDecodable(of: ProductModel.self) { response in
+             switch response.result {
+             case .success(let data):
+                 do {
+                     let realm = try Realm()
+                     
+                     try realm.write {
+                         for product in data.products {
+                             let obj = ProductObject()
+                             obj.id = product.id
+                             obj.title = product.title
+                             obj.desc = product.description
+                             obj.price = product.price
+                             obj.rating = product.rating
+                             obj.discountPercentage = product.discountPercentage
+                             obj.stock = product.stock
+                             obj.sku = product.sku
+                             obj.thumbnail = product.thumbnail
+                             obj.images.append(objectsIn: product.images)
+                             
+                             realm.add(obj, update: .modified)
+                         }
+                     }
+                     
+                 } catch {
+                     print("Realm error: \(error)")
+                 }
+             case .failure(let error):
+                 print("Error: \(error)")
+             }
+         }
+     }
 }
