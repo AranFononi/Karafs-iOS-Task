@@ -22,6 +22,7 @@ struct Product: Codable {
     let stock: Int
     let sku : String
     let thumbnail: String
+    let images: [String]
 }
 
 class ProductObject: Object, Identifiable {
@@ -34,5 +35,6 @@ class ProductObject: Object, Identifiable {
     @Persisted var stock: Int
     @Persisted var sku: String
     @Persisted var thumbnail: String
+    @Persisted var images: List<String>
 }
 

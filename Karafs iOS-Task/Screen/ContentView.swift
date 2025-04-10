@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationView {
             List(viewModel.products) { product in
                 
-                NavigationLink(destination: ProductDetailView(productName: product.title, productPrice: product.price, productRating: product.rating, productDiscount: product.discountPercentage, productStock: product.stock, productSku: product.sku, productDescription: product.desc)) {
+                NavigationLink(destination: ProductDetailView(productImage: Array(product.images), productName: product.title, productPrice: product.price, productRating: product.rating, productDiscount: product.discountPercentage, productStock: product.stock, productSku: product.sku, productDescription: product.desc)) {
                     if networkMonitor.isConnected {
                         ProductListRowView(productTitle: product.title, productRate: product.rating, productThumbnail: product.thumbnail)
                     } else {

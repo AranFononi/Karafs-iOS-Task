@@ -33,6 +33,10 @@ actor NetworkManager {
                             obj.sku = product.sku
                             obj.thumbnail = product.thumbnail
                             
+                            let imageList = List<String>()
+                            imageList.append(objectsIn: product.images)
+                            obj.images = imageList
+                            
                             realm.add(obj, update: .modified)
                         }
                     }
