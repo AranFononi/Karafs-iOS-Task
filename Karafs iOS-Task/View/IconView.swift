@@ -10,6 +10,7 @@ import SwiftUI
 struct IconView: View {
     
     var rate: Double
+    var size: CGFloat = 30
     
     var icon: String {
         switch rate {
@@ -42,7 +43,7 @@ struct IconView: View {
             .resizable()
             .scaledToFit()
             .foregroundStyle(iconColor)
-            .frame(width: 30, height: 30)
+            .frame(width: size, height: size)
             .symbolEffect(.breathe)
     }
 }

@@ -31,6 +31,7 @@ class NetworkManager {
                             obj.discountPercentage = product.discountPercentage
                             obj.stock = product.stock
                             obj.sku = product.sku
+                            obj.thumbnail = product.thumbnail
                             
                             realm.add(obj, update: .modified)
                         }

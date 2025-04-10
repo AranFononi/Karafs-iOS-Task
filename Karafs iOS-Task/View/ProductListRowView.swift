@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Network
 
 struct ProductListRowView: View {
     var productTitle: String
     var productRate: Double
+    var productThumbnail: String?
+    @StateObject private var networkMonitor = NetworkMonitor()
+    
     var body: some View {
         
         
@@ -17,7 +21,31 @@ struct ProductListRowView: View {
         HStack(alignment: .center, spacing: 16) {
             
             // Icon
-            IconView(rate: productRate)
+            VStack {
+                if networkMonitor.isConnected && productThumbnail != nil {
+                    AsyncImage(url: URL(string: productThumbnail!)) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                        } else if phase.error != nil {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.gray)
+                        } else {
+                            ProgressView()
+                                .frame(width: 30, height: 30)
+                        }
+                    }
+                    IconView(rate: productRate, size: 15)
+                } else {
+                    IconView(rate: productRate)
+                }
+               
+            }
             
             
             VStack(alignment:.leading, spacing: 8) {
