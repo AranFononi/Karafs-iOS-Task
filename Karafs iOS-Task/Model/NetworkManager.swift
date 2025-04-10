@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 import RealmSwift
 
-class NetworkManager {
+actor NetworkManager {
     
     static let shared = NetworkManager()
     

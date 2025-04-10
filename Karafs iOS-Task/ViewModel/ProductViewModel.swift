@@ -47,8 +47,10 @@ class ProductViewModel: ObservableObject {
     }
     
     private func fetchProductsFromNetwork() {
-        networkManager.fetchData()
-        loadProductsFromRealm()
+        Task {
+            await networkManager.fetchData()
+            loadProductsFromRealm()
+        }
     }
     
     private func loadProductsFromRealm() {
